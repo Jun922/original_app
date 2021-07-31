@@ -42,3 +42,13 @@ has_many :messages
 ### Association
 - belongs_to :room
 - belongs_to :user
+
+## messages テーブル
+| Column  | Type       | Options                        |
+| ------- | ---------- | ------------------------------ |
+| content | string     |                                |
+| user    | references | null: false, foreign_key: true |
+| room    | references | null: false, foreign_key: true |
+### Association
+- belongs_to :room
+- belongs_to :user
