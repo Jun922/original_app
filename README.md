@@ -14,3 +14,13 @@ has_one: user
 has_many :rooms, through: :room_users
 has_many :room_users
 has_many :messages
+
+## profiles テーブル
+| Column                 | Type       | Options                    |
+| ---------------------- | ---------- | -------------------------- |
+| nickname               | string     | null: false                |
+| introduction           | text       | null: false                |
+| birthday               | date       |                            |
+| prefecture_id          | integer    | null: false                |
+### Association
+belongs_to: user
