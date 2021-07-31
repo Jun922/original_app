@@ -52,3 +52,9 @@ has_many :messages
 ### Association
 - belongs_to :room
 - belongs_to :user
+
+## chats テーブル
+| Column | Type   | Options     |
+| ------ | ------ | ----------- |
+| name   | string | null: false |
+### Association
