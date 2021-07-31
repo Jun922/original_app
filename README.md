@@ -73,3 +73,5 @@ has_many :many_messages
 ### Association
 belongs_to :chat
 belongs_to :user
+
+#favorite機能もつけたい
