@@ -24,3 +24,12 @@ has_many :messages
 | prefecture_id          | integer    | null: false                |
 ### Association
 belongs_to: user
+
+## rooms テーブル
+| Column | Type   | Options     |
+| ------ | ------ | ----------- |
+| name   | string | null: false |
+### Association
+has_many :users, through: :room_users
+has_many :room_users
+has_many :messages
