@@ -8,7 +8,7 @@
 | encrypted_password     | string     | null: false                |
 | introduction           | text       | null: false                |
 | birthday               | date       |                            |
-| prefecture_id          | integer    | null: false                |
+#| prefecture_id          | integer    | null: false                |#
 ### Association
 has_many :chats, through: :chat_users
 has_many :chat_users
@@ -74,4 +74,4 @@ has_many :many_messages
 belongs_to :chat
 belongs_to :user
 
-#favorite機能もつけたい
+#favorite機能もつけたい#
