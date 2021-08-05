@@ -6,7 +6,7 @@
 | nickname               | string     | null: false                |
 | email                  | string     | null: false, unique: true  |
 | encrypted_password     | string     | null: false                |
-| introduction           | text       | null: false                |
+#| introduction           | text       | null: false                |#
 | birthday               | date       |                            |
 #| prefecture_id          | integer    | null: false                |#
 ### Association
