@@ -6,16 +6,36 @@
 | nickname               | string     | null: false                |
 | email                  | string     | null: false, unique: true  |
 | encrypted_password     | string     | null: false                |
-#| introduction           | text       | null: false                |#
 | birthday               | date       |                            |
-#| prefecture_id          | integer    | null: false                |#
 ### Association
-has_many :chats, through: :chat_users
-has_many :chat_users
-has_many :individual_messages
-has_many :rooms, through: :room_users
-has_many :room_users
+has_many :categories
 has_many :many_messages
+has_many :room_users
+has_many :rooms, through: :room_users
+has_many :individual_messages
+
+＊掲示板
+
+## categories テーブル
+| Column      | Type       | Options                        |
+| ----------- | ---------- | ------------------------------ |
+| user        | references | null: false, foreign_key: true |
+| category_id | integer    | null: false                    |
+### Association
+has_many :many_messages
+belongs_to :user
+
+## many_messages テーブル
+| Column  | Type       | Options                        |
+| ------- | ---------- | ------------------------------ |
+| content | string     |                                |
+| user    | references | null: false, foreign_key: true |
+### Association
+belongs_to :category
+belongs_to :user
+
+
+＊個人チャット
 
 ## chat_users テーブル
 | Column | Type       | Options                        |
@@ -44,34 +64,3 @@ has_many :individual_messages
 ### Association
 belongs_to :chat
 belongs_to :user
-
-## room_users テーブル
-| Column | Type       | Options                        |
-| ------ | ---------- | ------------------------------ |
-| user   | references | null: false, foreign_key: true |
-| room   | references | null: false, foreign_key: true |
-### Association
-belongs_to :room
-belongs_to :user
-
-## rooms テーブル
-| Column      | Type       | Options                        |
-| ----------- | ---------- | ------------------------------ |
-| user        | references | null: false, foreign_key: true |
-| category_id | integer    | null: false                    |
-### Association
-has_many :users, through: :room_users
-has_many :room_users
-has_many :many_messages
-
-## many_messages テーブル
-| Column  | Type       | Options                        |
-| ------- | ---------- | ------------------------------ |
-| content | string     |                                |
-| user    | references | null: false, foreign_key: true |
-| room    | references | null: false, foreign_key: true |
-### Association
-belongs_to :chat
-belongs_to :user
-
-#favorite機能もつけたい#
