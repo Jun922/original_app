@@ -19,18 +19,18 @@ has_many :individual_messages
 ## categories テーブル
 | Column      | Type       | Options                        |
 | ----------- | ---------- | ------------------------------ |
-| content     | string     | null: false                    |
 | user        | references | null: false, foreign_key: true |
-| category    | references | null: false, foreign_key: true |
 ### Association
 has_many :many_messages
 belongs_to :user
 
 ## messages テーブル ×10(各職種)
-| Column  | Type       | Options                        |
-| ------- | ---------- | ------------------------------ |
-| content | string     |                                |
-| user    | references | null: false, foreign_key: true |
+| Column   | Type       | Options                        |
+| -------- | ---------- | ------------------------------ |
+| content  | string     |                                |
+| user     | references | null: false, foreign_key: true |
+| category | references | null: false, foreign_key: true |
+
 ### Association
 belongs_to :category
 belongs_to :user

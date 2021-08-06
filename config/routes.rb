@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   root to: "categories#index"
 
   resources :categories, only: [:index]
+  resources :makers, only: [:index, :create]
 end
