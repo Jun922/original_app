@@ -13,5 +13,5 @@ class Genre < ActiveHash::Base
   ]
 
   include ActiveHash::Associations
-  has_many :genres
+  has_many :categorys
 end
