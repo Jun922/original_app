@@ -25,7 +25,7 @@ has_many :individual_messages
 has_many :many_messages
 belongs_to :user
 
-## many_messages テーブル
+## many_messages テーブル ×10(各職種)
 | Column  | Type       | Options                        |
 | ------- | ---------- | ------------------------------ |
 | content | string     |                                |
