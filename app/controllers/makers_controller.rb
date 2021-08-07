@@ -6,16 +6,12 @@ class MakersController < ApplicationController
 
   def create
     @maker = Maker.new(maker_params)
-    if @maker.save
-      render :index
-    else
-      render :index
-    end
+    Maker.create(maker_params)
   end
 
   private
 
   def maker_params
-   params.require(:maker).permit(:content, :image).merge(user_id: current_user.id, category_id: category.id)
+    params.require(:maker).permit(:content, :image).merge(user_id: current_user.id, category_id: categories_url)
  end
 end

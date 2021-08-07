@@ -1,13 +1,18 @@
 <div class="chat-header">
   <div class="left-header">
     <div class="header-title">
+      <%= link_to "ORIAPP", root_path, class: "header-title" %>
+    </div>
+  </div>
+  <div class="right-herder">
+    <div class="header-button">
       <%= "メーカー" %>
     </div>
   </div>
 </div>
 
 <div class="messages">
-  <%= render partial: 'message', collection: @messages %>
+  <%= render partial: 'message', collection: @makers %>
 </div>
 
 <%= form_with model: [@maker], class: 'form', local: true do |f| %>
