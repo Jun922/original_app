@@ -1,6 +1,7 @@
 class MakersController < ApplicationController
   def index
     @makers = Maker.order("created_at DESC")
+    @makers = Maker.all.includes(:user)
     @maker = Maker.new
   end
 
@@ -12,6 +13,6 @@ class MakersController < ApplicationController
   private
 
   def maker_params
-    params.require(:maker).permit(:content, :image).merge(user_id: current_user.id, category_id: categories_url)
+    params.require(:maker).permit(:content, :image).merge(user_id: current_user.id, category_id: category.id)
  end
 end
