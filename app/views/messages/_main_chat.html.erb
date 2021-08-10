@@ -4,7 +4,7 @@
       <%= @room.name %>
     </div>
   </div>
-  <div class="right-herder">
+  <div class="right-header">
     <div class="header-button">
       <%= link_to "チャットを終了する", room_path(@room), method: :delete %>
     </div>
@@ -12,7 +12,7 @@
 </div>
 
 <div class="messages">
-  <%= render partial: '_message', collection: @messages %>
+  <%= render partial: 'message', collection: @messages %>
 </div>
 
 <%= form_with model: [@room, @message], class: 'form', local: true do |f| %>
