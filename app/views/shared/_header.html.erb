@@ -4,16 +4,8 @@
     <ul class='lists-left'>
       <li><%= link_to 'ORIAPP', root_path, class: "lists-left" %></li>
     </ul>
-    <ul class='lists-down'>
-      <li><%= link_to 'メーカー', root_path, class: "category" %>
-      <%= link_to '商社', root_path, class: "category" %>
-      <%= link_to '流通・小売', root_path, class: "category" %>
-      <%= link_to '金融', root_path, class: "category" %>
-      <%= link_to 'サービス・インフラ', root_path, class: "category" %>
-      <%= link_to 'ソフトウエア・通信', root_path, class: "category" %>
-      <%= link_to '広告・出版・マスコミ', root_path, class: "category" %>
-      <%= link_to '官公庁・公社・団体', root_path, class: "category" %>
-      <%= link_to 'その他', root_path, class: "category" %></li>
+    <ul class='lists-left'>
+      <li><%= link_to '掲示板', rooms_path, class: "category-list" %></li>
     </ul>
 
     <% if user_signed_in? %>
