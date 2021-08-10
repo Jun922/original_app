@@ -1,4 +1,5 @@
-class UersController < ApplicationController
+class UsersController < ApplicationController
+
   def edit
   end
 
@@ -11,7 +12,6 @@ class UersController < ApplicationController
   end
 
   private
-
   def user_params
     params.require(:user).permit(:nickname, :email)
   end
