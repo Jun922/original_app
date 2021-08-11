@@ -20,16 +20,17 @@ has_many :individual_messages
 | Column      | Type       | Options                        |
 | ----------- | ---------- | ------------------------------ |
 | user        | references | null: false, foreign_key: true |
-| category_id | integer    | null: false                    |
 ### Association
 has_many :many_messages
 belongs_to :user
 
-## many_messages テーブル
-| Column  | Type       | Options                        |
-| ------- | ---------- | ------------------------------ |
-| content | string     |                                |
-| user    | references | null: false, foreign_key: true |
+## messages テーブル ×10(各職種)
+| Column   | Type       | Options                        |
+| -------- | ---------- | ------------------------------ |
+| content  | string     |                                |
+| user     | references | null: false, foreign_key: true |
+| category | references | null: false, foreign_key: true |
+
 ### Association
 belongs_to :category
 belongs_to :user
