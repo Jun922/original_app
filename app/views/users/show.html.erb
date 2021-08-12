@@ -10,10 +10,6 @@
       <%= form_with model: current_user, local: true do |f|%>
         <div class='field'>
           <div class='field-label'>
-            <%= gravatar_for @user %>
-            <a href="http://gravatar.com/emails" target="_blank">change</a>
-          </div>
-          <div class='field-label'>
             <%= f.label :name%>
           </div>
           <div class='field-input'>
