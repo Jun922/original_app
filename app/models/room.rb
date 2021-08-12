@@ -1,5 +1,5 @@
 class Room < ApplicationRecord
-  belongs :user
+  belongs_to :user
   has_many :messages
   
   validates :name, presence: true
