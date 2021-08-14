@@ -4,7 +4,7 @@
       <h2>My Page</h2>
       <h5>マイページ</h5>
       <%= link_to "編集する", edit_user_path, class: 'btn'%>
-      <%= link_to "チャットページに戻る", :back, class: 'btn'%>
+      <%= link_to "チャットページに戻る", rooms_path, class: 'btn'%>
     </div>
     <div class='account-page__inner--right user-form'>
       <%= form_with model: current_user, local: true do |f|%>
@@ -25,10 +25,6 @@
           <%= f.label :Introduction %> <%= link_to current_user.introduction %>
         </div>
       </div>
-
-        <div class='actions'>
-          <%= f.submit "Update", class: 'btn'%>
-        </div>
       <% end %>
     </div>
   </div>
