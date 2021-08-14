@@ -1,39 +1,39 @@
 # テーブル設計
 
 ## users テーブル
-| Column                 | Type       | Options                    |
-| ---------------------- | ---------- | -------------------------- |
-| nickname               | string     | null: false                |
-| email                  | string     | null: false, unique: true  |
-| encrypted_password     | string     | null: false                |
-| birthday               | date       |                            |
+| Column       | Type       | Options                    |
+| -------------| ---------- | -------------------------- |
+| name         | string     | null: false                |
+| email        | string     | null: false, unique: true  |
+| password     | string     | null: false                |
+| birthday     | date       |                            |
+| introduction | text       |                            |
 ### Association
-has_many :categories
-has_many :many_messages
-has_many :room_users
-has_many :rooms, through: :room_users
-has_many :individual_messages
+has_many :rooms
+has_many :messages
 
 ＊掲示板
 
-## categories テーブル
-| Column      | Type       | Options                        |
-| ----------- | ---------- | ------------------------------ |
-| user        | references | null: false, foreign_key: true |
+## rooms テーブル
+| Column | Type       | Options                        |
+| -------| ---------- | ------------------------------ |
+| name   | string     | null: false                    |
+| user   | references | null: false, foreign_key: true |
 ### Association
-has_many :many_messages
+has_many :messages
 belongs_to :user
 
 ## messages テーブル ×10(各職種)
-| Column   | Type       | Options                        |
-| -------- | ---------- | ------------------------------ |
-| content  | string     |                                |
-| user     | references | null: false, foreign_key: true |
-| category | references | null: false, foreign_key: true |
+| Column  | Type       | Options                        |
+| ------- | ---------- | ------------------------------ |
+| content | string     |                                |
+| user    | references | null: false, foreign_key: true |
+| room    | references | null: false, foreign_key: true |
 
 ### Association
 belongs_to :category
 belongs_to :user
+has_one_attached :image
 
 
 ＊個人チャット
