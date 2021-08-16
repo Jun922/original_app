@@ -1,10 +1,10 @@
 class MessagesController < ApplicationController
+  before_action :contributor_confirmation, only: [:edit, :update]
+
   def index
      @message = Message.new
      @room = Room.find(params[:room_id])
      @messages = @room.messages.includes(:user)
-     @messages = Message.includes(:user)
-
 
      query = "SELECT * FROM rooms"
      @rooms = Room.find_by_sql(query)
@@ -25,5 +25,12 @@ class MessagesController < ApplicationController
  
    def message_params
     params.require(:message).permit(:content, :image).merge(user_id: current_user.id)
+  end
+
+  def contributor_confirmation
+    @message = Message.find(params[:id])
+    unless current_user == @message.user
+      redirect_to root_path
+    end
   end
  end
