@@ -7,22 +7,22 @@
       <%= link_to "チャットページに戻る", rooms_path, class: 'btn'%>
     </div>
     <div class='account-page__inner--right user-form'>
-      <%= form_with model: current_user, local: true do |f|%>
+      <%= form_with model: @user, local: true do |f|%>
         <div class='field'>
           <div class='field-label'>
-            <%= f.label :Name %> <%= link_to current_user.name %>
+            <%= f.label :Name %> <%= @user.name %>
           </div>
         </div>
 
         <div class='field'>
           <div class='field-label'>
-            <%= f.label :Birthday %><%= link_to current_user.birthday %>
+            <%= f.label :Birthday %><%= @user.birthday %>
           </div>
         </div>
 
       <div class="field">
         <div class="field-label">
-          <%= f.label :Introduction %> <%= link_to current_user.introduction %>
+          <%= f.label :Introduction %> <%= @user.introduction %>
         </div>
       </div>
       <% end %>
