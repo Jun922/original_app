@@ -10,7 +10,7 @@
 | introduction | text       |                            |
 ### Association
 has_many :rooms
-has_many :messages
+has_many :posts
 
 ＊掲示板
 
@@ -20,10 +20,10 @@ has_many :messages
 | name   | string     | null: false                    |
 | user   | references | null: false, foreign_key: true |
 ### Association
-has_many :messages
+has_many :posts
 belongs_to :user
 
-## messages テーブル ×10(各職種)
+## posts テーブル ×10(各職種)
 | Column  | Type       | Options                        |
 | ------- | ---------- | ------------------------------ |
 | content | string     |                                |
