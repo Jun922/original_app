@@ -1,4 +1,4 @@
-class Message < ApplicationRecord
+class Post < ApplicationRecord
   belongs_to :room
   belongs_to :user
   has_one_attached :image
@@ -8,4 +8,5 @@ class Message < ApplicationRecord
   def was_attached?
     self.image.attached?
   end
+
 end
