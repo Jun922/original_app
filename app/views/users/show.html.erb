@@ -5,25 +5,15 @@
       <h5>マイページ</h5>
       <%= link_to "編集する", edit_user_path, class: 'btn'%>
       <%= link_to "チャットページに戻る", rooms_path, class: 'btn'%>
+      <%= render 'follow' if signed_in? %>
     </div>
     <div class='account-page__inner--right user-form'>
       <%= form_with model: @user, local: true do |f|%>
 
         <div class='field'>
-          <% @user ||= current_user %>
-          <div class='field-label'>
-            <a href="<%= following_user_path(@user) %>">
-              <strong id="following" class="stat">
-                <%= @user.following.count %>
-              </strong>
-              following
-            </a>
-            <a href="<%= followers_user_path(@user) %>">
-              <strong id="followers" class="stat">
-                <%= @user.followers.count %>
-              </strong>
-              followers
-            </a>
+        <% @user ||= current_user %>
+          <div class="stats">
+            <%= render 'users/stats' %>
           </div>
         </div>
 
