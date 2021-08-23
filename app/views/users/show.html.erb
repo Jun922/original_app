@@ -6,15 +6,15 @@
       <h2><%= @user.name %></h2>
       <%= link_to "編集する", edit_user_path, class: 'btn'%>
       <%= link_to "チャットページに戻る", rooms_path, class: 'btn'%>
-
-        <div id="follow_form">
+      <div id="follow_form">
+        <% if signed_in? current_user == @user %>
           <% if current_user.following?(@user) %>
             <%= render 'unfollow' %>
           <% else %>
             <%= render 'follow' %>
           <% end %>
-        </div>
-
+        <% end %>
+      </div>
     </div>
     <div class='account-page__inner--right user-form'>
       <%= form_with model: @user, local: true do |f|%>
@@ -24,7 +24,6 @@
             <%= render 'users/stats' %>
           </div>
         </div>
-
 
         <div class='field'>
           <div class='field-label'>
