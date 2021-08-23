@@ -6,7 +6,7 @@
     <% if @users.any? %>
       <div class="user_avatars">
         <% @users.each do |users| %>
-          <%= link_to @user.name, user_path(@user.id) %>
+          <%= link_to @user.name, user_path(users.id) %>
         <% end %>
       </div>
     <% end %>
