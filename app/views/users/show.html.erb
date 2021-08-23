@@ -3,8 +3,7 @@
 <div class='account-page' id='account-page'>
   <div class='account-page__inner clearfix'>
     <div class='account-page__inner--left account-page__header'>
-      <h2>My Page</h2>
-      <h5>マイページ</h5>
+      <h2><%= @user.name %></h2>
       <%= link_to "編集する", edit_user_path, class: 'btn'%>
       <%= link_to "チャットページに戻る", rooms_path, class: 'btn'%>
 
@@ -26,11 +25,6 @@
           </div>
         </div>
 
-        <div class='field'>
-          <div class='field-label'>
-            <%= f.label :Name %> <%= @user.name %>
-          </div>
-        </div>
 
         <div class='field'>
           <div class='field-label'>
