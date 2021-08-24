@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :posts, only: [:index, :create]
   end
   resources :relationships, only: [:create, :destroy]
+  resources :chats, only: [:index, :create]
 
   resources :users do
     member do
