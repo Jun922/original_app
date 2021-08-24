@@ -31,7 +31,7 @@ belongs_to :user
 | user    | references | null: false, foreign_key: true |
 | room    | references | null: false, foreign_key: true |
 ### Association
-belongs_to :category
+belongs_to :post
 belongs_to :user
 has_one_attached :image
 
@@ -47,30 +47,10 @@ belongs_to :user
 
 
 *個人チャット
-## chat_users テーブル
-| Column | Type       | Options                        |
-| ------ | ---------- | ------------------------------ |
-| user   | references | null: false, foreign_key: true |
-| chat   | references | null: false, foreign_key: true |
-### Association
-belongs_to :chat
-belongs_to :user
-
 ## chats テーブル
-| Column | Type   | Options     |
-| ------ | ------ | ----------- |
-| name   | string | null: false |
-### Association
-has_many :users, through: :chat_users
-has_many :chat_users
-has_many :messages
-
-## messages テーブル
 | Column  | Type       | Options                        |
 | ------- | ---------- | ------------------------------ |
 | content | string     |                                |
 | user    | references | null: false, foreign_key: true |
-| chat    | references | null: false, foreign_key: true |
 ### Association
-belongs_to :chat
 belongs_to :user
