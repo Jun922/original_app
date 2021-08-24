@@ -1,6 +1,6 @@
-class Post < ApplicationRecord
-  belongs_to :room
+class Chat < ApplicationRecord
   belongs_to :user
+  belongs_to :personal
   has_one_attached :image
 
   validates :content, presence: true, unless: :was_attached?
