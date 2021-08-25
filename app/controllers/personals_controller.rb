@@ -10,20 +10,16 @@ class PersonalsController < ApplicationController
   def create
     @personal = Personal.new(personal_params)
     if @personal.save
-      redirect_to root_path
+      redirect_to personal_chats_path
     else
       render :new
     end
   end
 
-  def show
-    @personal = Personal.find(params[:id])
-  end
-
   private
   
   def personal_params
-    params.require(:personal).merge(user_id: current_user.id)
+    params.require(:personal).permit(user_ids:[])
   end
 
 end
