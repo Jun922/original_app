@@ -5,10 +5,10 @@
 </div>
 
 <div class="rooms">
-  <% @personals.each do |personal| %>
+  <% @users.each do |user| %>
     <div class="room">
       <div class="room-name">
-        <%= link_to personal.name, personal_chats_path(personal) %>
+        <%= link_to user.name, personal_chats_path(personal) %>
       </div>
     </div>
   <% end %>
