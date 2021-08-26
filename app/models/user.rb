@@ -7,8 +7,8 @@ class User < ApplicationRecord
   has_many :rooms
   has_many :posts
 
-  has_many :personal_users
   has_many :personals, through: :personal_users
+  has_many :personal_users
   has_many :chats
   
   has_many :active_relationships, class_name:  "Relationship",
