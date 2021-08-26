@@ -2,13 +2,16 @@
   <div class="header-name">
     <%= link_to current_user.name, user_path(current_user) %>
   </div>
+    <div class="create-room">
+    <%= link_to "チャットを作成する", new_personal_path %>
+  </div>
 </div>
 
 <div class="rooms">
-  <% @users.each do |user| %>
+    <% current_user.personals.each do |personal| %>
     <div class="room">
       <div class="room-name">
-        <%= link_to user.name, personal_chats_path(personal) %>
+        <%= link_to personal.user.name, personal_chats_path(personal) %>
       </div>
     </div>
   <% end %>

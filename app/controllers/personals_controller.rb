@@ -21,5 +21,4 @@ class PersonalsController < ApplicationController
   def personal_params
     params.require(:personal).permit(user_ids:[])
   end
-
 end
