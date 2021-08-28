@@ -19,6 +19,6 @@ class PersonalsController < ApplicationController
   private
   
   def personal_params
-    params.require(:personal).permit(user_ids:[])
+    params.require(:personal).permit(:name, user_ids:[])
   end
 end
