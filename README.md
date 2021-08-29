@@ -11,6 +11,8 @@
 ### Association
 has_many :rooms
 has_many :posts
+has_many :room2s
+has_many :chats
 has_many :relationships[following, follower]
 
 
@@ -31,7 +33,7 @@ belongs_to :user
 | user    | references | null: false, foreign_key: true |
 | room    | references | null: false, foreign_key: true |
 ### Association
-belongs_to :post
+belongs_to :room
 belongs_to :user
 has_one_attached :image
 
@@ -47,11 +49,22 @@ belongs_to :user
 
 
 *個人チャット
+
+## room2s テーブル
+| Column | Type       | Options                        |
+| -------| ---------- | ------------------------------ |
+| name   | string     | null: false                    |
+| user   | references | null: false, foreign_key: true |
+### Association
+has_many :chats
+belongs_to :user
+
 ## chats テーブル
 | Column  | Type       | Options                        |
 | ------- | ---------- | ------------------------------ |
 | content | string     |                                |
 | user    | references | null: false, foreign_key: true |
 ### Association
+belongs_to :room2
 belongs_to :user
 has_one_attached :image
