@@ -5,7 +5,7 @@
     <div class='account-page__inner--left account-page__header'>
       <h2><%= @user.name %></h2>
       <%= link_to "編集する", edit_user_path, class: 'btn'%>
-      <%= link_to "チャットページに戻る", rooms_path, class: 'btn'%>
+      <%= link_to "チャットページに戻る", :back, class: 'btn'%>
       <% if signed_in? current_user == @user %>
       <% else%>
         <%= link_to "メッセージを送る", room2s_path, class: 'btn'%>
