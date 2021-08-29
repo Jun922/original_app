@@ -18,7 +18,7 @@ class Room2sController < ApplicationController
   def destroy
     room2 = Room2.find(params[:id])
     room2.destroy
-    redirect_to root_path
+    redirect_to room2s_path
   end
 
   private
