@@ -10,6 +10,10 @@ Rails.application.routes.draw do
     resources :posts, only: [:index, :create]
   end
 
+  resources :room2s, only: [:index, :new, :create, :destroy] do
+    resources :chats, only: [:index, :create]
+  end
+  
   resources :users do
     member do
       get :following, :followers
