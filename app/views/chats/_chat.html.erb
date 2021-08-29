@@ -2,7 +2,7 @@
   <div class="upper-message">
     <div class="message-user">
       <!-- 投稿したユーザー名情報を出力する -->
-      <%= chat.user.name %>
+      <%= link_to chat.user.name, user_path(chat.user) %>
     </div>
     <div class="message-date">
       <!-- 投稿した時刻を出力する -->
