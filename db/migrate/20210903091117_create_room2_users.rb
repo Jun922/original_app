@@ -1,7 +1,6 @@
-class CreateChats < ActiveRecord::Migration[6.0]
+class CreateRoom2Users < ActiveRecord::Migration[6.0]
   def change
-    create_table :chats do |t|
-      t.string :content
+    create_table :room2_users do |t|
       t.references :room2, foreign_key: true
       t.references :user, foreign_key: true
       t.timestamps

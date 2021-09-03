@@ -7,7 +7,8 @@ class User < ApplicationRecord
   has_many :rooms
   has_many :posts
   
-  has_many :room2s
+  has_many :room2_users
+  has_many :room2s, through: :room2_users
   has_many :chats, dependent: :destroy
 
   has_many :active_relationships, class_name:  "Relationship",
@@ -38,8 +39,7 @@ class User < ApplicationRecord
 
   with_options presence: true do
     validates :password, length: { minimum: 6 }, format: {with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i}
-    validates :name, uniqueness: true
-    validates :email, uniqueness: true
+    validates :name
     validates :birthday
   end
 

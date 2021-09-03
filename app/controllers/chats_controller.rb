@@ -1,8 +1,13 @@
 class ChatsController < ApplicationController
+  before_action :contributor_confirmation, only: [:edit, :update]
+
   def index
     @chat = Chat.new
     @room2 = Room2.find(params[:room2_id])
     @chats = @room2.chats.includes(:user)
+
+    query = "SELECT * FROM room2s"
+    @chats = Chat.find_by_sql(query)
   end
 
   def create
@@ -21,4 +26,11 @@ class ChatsController < ApplicationController
   def chat_params
    params.require(:chat).permit(:content, :image).merge(user_id: current_user.id)
  end
+
+ def contributor_confirmation
+    @chat = Chat.find(params[:id])
+    unless current_user == @chat.user
+      redirect_to root_path
+    end
+  end
 end
