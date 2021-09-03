@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_29_135526) do
+ActiveRecord::Schema.define(version: 2021_09_03_111434) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -35,11 +35,11 @@ ActiveRecord::Schema.define(version: 2021_08_29_135526) do
 
   create_table "chats", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "content"
-    t.bigint "room2_id"
+    t.bigint "room_id"
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["room2_id"], name: "index_chats_on_room2_id"
+    t.index ["room_id"], name: "index_chats_on_room_id"
     t.index ["user_id"], name: "index_chats_on_user_id"
   end
 
@@ -61,6 +61,15 @@ ActiveRecord::Schema.define(version: 2021_08_29_135526) do
     t.index ["followed_id"], name: "index_relationships_on_followed_id"
     t.index ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
     t.index ["follower_id"], name: "index_relationships_on_follower_id"
+  end
+
+  create_table "room2_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "room2_id"
+    t.bigint "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["room2_id"], name: "index_room2_users_on_room2_id"
+    t.index ["user_id"], name: "index_room2_users_on_user_id"
   end
 
   create_table "room2s", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -95,10 +104,12 @@ ActiveRecord::Schema.define(version: 2021_08_29_135526) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "chats", "room2s"
+  add_foreign_key "chats", "rooms"
   add_foreign_key "chats", "users"
   add_foreign_key "posts", "rooms"
   add_foreign_key "posts", "users"
+  add_foreign_key "room2_users", "room2s"
+  add_foreign_key "room2_users", "users"
   add_foreign_key "room2s", "users"
   add_foreign_key "rooms", "users"
 end
