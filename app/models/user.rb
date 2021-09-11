@@ -7,8 +7,7 @@ class User < ApplicationRecord
   has_many :rooms
   has_many :posts
   
-  has_many :room2_users
-  has_many :room2s, through: :room2_users
+  has_many :room2s
   has_many :chats, dependent: :destroy
 
   has_many :active_relationships, class_name:  "Relationship",

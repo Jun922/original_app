@@ -1,6 +1,7 @@
 class Room2sController < ApplicationController
   def index
     @room2s = Room2.order("created_at DESC")
+    @room2s = Room2.all
   end
 
   def new

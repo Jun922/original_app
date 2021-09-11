@@ -2,6 +2,7 @@ class ChatsController < ApplicationController
   before_action :contributor_confirmation, only: [:edit, :update]
 
   def index
+    @chats = Chat.all
     @chat = Chat.new
     @room2 = Room2.find(params[:room2_id])
     @chats = @room2.chats.includes(:user)
