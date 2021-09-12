@@ -2,7 +2,6 @@ class ChatsController < ApplicationController
   before_action :contributor_confirmation, only: [:edit, :update]
 
   def index
-    @chats = Chat.all
     @chat = Chat.new
     @room2 = Room2.find(params[:room2_id])
     @chats = @room2.chats.includes(:user)
@@ -23,9 +22,8 @@ class ChatsController < ApplicationController
   end
 
   private
-
   def chat_params
-   params.require(:chat).permit(:content, :image).merge(user_id: current_user.id)
+   params.require(:chat).permit(:content).merge(user_id: current_user.id)
  end
 
  def contributor_confirmation
