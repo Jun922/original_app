@@ -6,8 +6,7 @@ class ChatsController < ApplicationController
     @room2 = Room2.find(params[:room2_id])
     @chats = @room2.chats.includes(:user)
 
-    query = "SELECT * FROM room2s"
-    @chats = Chat.find_by_sql(query)
+    @chats = Chat.all
   end
 
   def create
