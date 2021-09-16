@@ -1,5 +1,5 @@
 class Post < ApplicationRecord
-  belongs_to :room
+  belongs_to :room2
   belongs_to :user
   has_one_attached :image
 

@@ -1,7 +1,6 @@
 class Room2sController < ApplicationController
   def index
     @room2s = Room2.order("created_at DESC")
-    @room2s = Room2.all
   end
 
   def new
@@ -17,13 +16,8 @@ class Room2sController < ApplicationController
     end
   end
 
-  def destroy
-    room2.destroy
-    redirect_to room2s_path
-  end
-
   private
   def room2_params
-    params.require(:room2).permit(:name, user_ids:[]).merge(user_id: current_user.id)
+    params.require(:room2).permit(:name).merge(user_id: current_user.id)
   end
 end

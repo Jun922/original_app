@@ -3,20 +3,20 @@ class PostsController < ApplicationController
 
   def index
      @post = Post.new
-     @room = Room.find(params[:room_id])
-     @posts = @room.posts.includes(:user)
+     @room2 = Room2.find(params[:room2_id])
+     @posts = @room2.posts.includes(:user)
 
      query = "SELECT * FROM rooms"
-     @rooms = Room.find_by_sql(query)
+     @room2s = Room2.find_by_sql(query)
    end
  
    def create
-     @room = Room.find(params[:room_id])
-     @post = @room.posts.new(post_params)
+     @room2 = Room2.find(params[:room2_id])
+     @post = @room2.posts.new(post_params)
      if @post.save
-       redirect_to room_posts_path(@room)
+       redirect_to room2_posts_path(@room2)
      else
-       @posts = @room.posts.includes(:user)
+       @posts = @room2.posts.includes(:user)
        render :index
      end
    end
