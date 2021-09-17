@@ -8,7 +8,7 @@ class RoomsController < ApplicationController
 
   def create
     @room = Room.new(room_params)
-    if @room.save!
+    if @room.save
       redirect_to room_messages_path
     else
       render :new
