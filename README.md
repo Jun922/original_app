@@ -9,15 +9,16 @@
 | birthday     | date       |                            |
 | introduction | text       |                            |
 ### Association
-has_many :rooms
-has_many :posts
 has_many :room2s
-has_many :chats
+has_many :posts
+has_many :room_users
+has_many :rooms, through: :room_users
+has_many :messages
 has_many :relationships[following, follower]
 
 
 ＊掲示板
-## rooms テーブル
+## room2s テーブル
 | Column | Type       | Options                        |
 | -------| ---------- | ------------------------------ |
 | name   | string     | null: false                    |
@@ -26,7 +27,49 @@ has_many :relationships[following, follower]
 has_many :posts
 belongs_to :user
 
-## posts テーブル ×10(各職種)
+## posts テーブル
+| Column  | Type       | Options                        |
+| ------- | ---------- | ------------------------------ |
+| content | string     |                                |
+| user    | references | null: false, foreign_key: true |
+| room2   | references | null: false, foreign_key: true |
+### Association
+belongs_to :room2
+belongs_to :user
+has_one_attached :image
+
+
+*フォロー機能
+## relationships テーブル
+| Column        | Type    | Options |
+| ------------- | ------- | ------- |
+| follower_id   | integer |         |
+| followed_id   | integer |         |
+### Association
+belongs_to :user
+
+
+*個人チャット
+
+## rooms テーブル
+| Column | Type       | Options                        |
+| -------| ---------- | ------------------------------ |
+| name   | string     | null: false                    |
+### Association
+has_many :room_user
+has_many :users, through: :room_users
+has_many :messages
+
+## room_users テーブル
+| Column | Type       | Options                         |
+| -------| ---------- | ------------------------------- |
+| room    | references | null: false, foreign_key: true |
+| user    | references | null: false, foreign_key: true |
+### Association
+belongs_to :user
+belongs_to :room
+
+## messages テーブル
 | Column  | Type       | Options                        |
 | ------- | ---------- | ------------------------------ |
 | content | string     |                                |
@@ -34,37 +77,5 @@ belongs_to :user
 | room    | references | null: false, foreign_key: true |
 ### Association
 belongs_to :room
-belongs_to :user
-has_one_attached :image
-
-
-*フォロー機能
-## relationships テーブル
-| Column        | Type       | Options                        |
-| ------------- | ---------- | ------------------------------ |
-| follower_id   | string     | null: false                    |
-| followed_id   | references | null: false, foreign_key: true |
-### Association
-belongs_to :user
-
-
-*個人チャット
-
-## room2s テーブル
-| Column | Type       | Options                        |
-| -------| ---------- | ------------------------------ |
-| name   | string     | null: false                    |
-| user   | references | null: false, foreign_key: true |
-### Association
-has_many :chats
-belongs_to :user
-
-## chats テーブル
-| Column  | Type       | Options                        |
-| ------- | ---------- | ------------------------------ |
-| content | string     |                                |
-| user    | references | null: false, foreign_key: true |
-### Association
-belongs_to :room2
 belongs_to :user
 has_one_attached :image

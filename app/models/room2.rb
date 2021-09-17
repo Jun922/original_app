@@ -1,6 +1,6 @@
 class Room2 < ApplicationRecord
-  belongs_to :user
   has_many :posts
+  belongs_to :user
   
   validates :name, presence: true
 end
