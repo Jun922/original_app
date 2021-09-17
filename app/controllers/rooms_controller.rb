@@ -1,5 +1,6 @@
 class RoomsController < ApplicationController
   def index
+    @rooms = Room.all
   end
 
   def new
@@ -9,7 +10,7 @@ class RoomsController < ApplicationController
   def create
     @room = Room.new(room_params)
     if @room.save
-      redirect_to room_messages_path
+      redirect_to rooms_path
     else
       render :new
     end
