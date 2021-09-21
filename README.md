@@ -22,7 +22,7 @@
 | birthday     | date       |                            |
 | introduction | text       |                            |
 ##### Association
--has_many :room2s　　
+-has_many :room2s  
 -has_many :posts　　
 -has_many :room_users　　
 -has_many :rooms, through: :room_users　　
