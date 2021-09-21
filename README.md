@@ -30,7 +30,7 @@
   - has_many :relationships[following, follower]  
 
 
-**掲示板**
+
 #### room2s テーブル
 | Column | Type       | Options                        |
 | -------| ---------- | ------------------------------ |
@@ -52,7 +52,7 @@
   - has_one_attached :image  
 
 
-### フォロー機能
+
 #### relationships テーブル
 | Column        | Type    | Options |
 | ------------- | ------- | ------- |
@@ -62,7 +62,7 @@
   - belongs_to :user  
 
 
-### 個人チャット
+
 #### rooms テーブル
 | Column | Type       | Options                        |
 | -------| ---------- | ------------------------------ |
