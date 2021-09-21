@@ -4,7 +4,7 @@
 
 ### **https://original-app1.herokuapp.com/**  
 
-<img src="https://gyazo.com/3c4a9eef28b33868e039a6fba68e4845" width=70%>
+![index](https://i.gyazo.com/3c4a9eef28b33868e039a6fba68e4845.jpg)
 
 ## 📝 制作背景
 価値観や人間性は周囲5人の平均と言われています。
