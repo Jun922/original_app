@@ -40,7 +40,6 @@ class User < ApplicationRecord
   with_options presence: true do
     validates :password, length: { minimum: 6 }, format: {with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i}
     validates :name
-    validates :birthday
   end
 
   validates :introduction, length: {maximum: 150}
