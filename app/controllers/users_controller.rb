@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :move_to_root_path, only: [:index, :create]
+
   def show
     @user = User.find(params[:id])
   end
@@ -31,5 +33,12 @@ class UsersController < ApplicationController
   private
   def user_params
     params.require(:user).permit(:name, :birthday, :introduction)
+  end
+
+  def move_to_root_path
+    @user = user.find(params[:id])
+    if current_user.id == @user_id
+      redirect_to root_path
+    end
   end
 end
